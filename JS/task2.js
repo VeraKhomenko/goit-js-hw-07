@@ -1,36 +1,45 @@
-// Write code under this line
-class User {
-  constructor(name, age, followers) {
-    this.name = name;
-    this.age = age;
-    this.followers = followers;
-  }
-  getInfo() {
-    return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
-  }
-}
-
-console.log(typeof User);
-// 'function'
-
-const mango = new User('Mango', 2, 20);
-console.log(mango.getInfo());
-// 'User Mango is 2 years old and has 20 followers'
-
-console.log(typeof mango.getInfo);
-// 'function'
-
-const poly = new User('Poly', 3, 17);
-console.log(poly.getInfo());
-// 'User Poly is 3 years old and has 17 followers'
-
 /*
-Задача 5-2
-class
-Напиши класс User для создания пользователя со следующим свойствами:
-
-name - строка
-age - число
-followers - число
-Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
+Задание 2
+В HTML есть пустой список ul#ingredients.
+Напиши скрипт, который для каждого элемента массива ingredients создаст отдельный 
+li, после чего вставит все li за одну операцию в список ul.ingredients. 
+Для создания DOM-узлов используй document.createElement().
+elem.querySelector(selector)
 */
+
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы',
+];
+// способ 1
+// const container = document.createDocumentFragment(); //создаем пустой контейнер
+// const ulElement = document.getElementById('ingredients'); // из DOM  вытягиваем елемент по его Id
+
+// ingredients.forEach(element => {
+//   // проходим по каждому эл массива ingredients
+//   const liElement = document.createElement('li'); // создаем пустой эл li
+//   liElement.textContent = element; // наполняем его текстом из массива
+//   container.appendChild(liElement); // кладем наполненную ли в контейнер
+// });
+
+// ulElement.appendChild(container); // вкладываем элементу с Id всё содержимое из контейнера
+// console.log(ulElement);
+
+// способ 2
+
+const ul = document.querySelector('#ingredients');
+
+const ingredientsList = ingredients.map(ingredient => {
+  const li = document.createElement('li');
+  li.textContent = ingredient;
+
+  return li;
+});
+
+console.log(ingredientsList);
+
+ul.append(...ingredientsList);
