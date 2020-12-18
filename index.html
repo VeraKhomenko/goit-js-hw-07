@@ -4,14 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
-  <body></body>
-  <!-- <script src="./JS/webinar.js" type="module"></script> -->
-  <!-- <script src="./JS/webinar02.js" type="module"></script> -->
-  <!-- <script src="./JS/webinar03.js" type="module"></script> -->
+  <body class="container">
+    <header class="header">
+      <ul class="main-menu">
+        <li class="item title"><a href="#task1">Задание 1</a></li>
+        <li class="item title"><a href="#task2">Задание 2</a></li>
+        <li class="item title"><a href="#task3">Задание 3</a></li>
+        <li class="item title"><a href="#task4">Задание 4</a></li>
+        <li class="item title"><a href="#task5">Задание 5</a></li>
+        <li class="item title"><a href="#task6">Задание 6</a></li>
+        <li class="item title"><a href="#task7">Задание 7</a></li>
+        <li class="item title"><a href="#task8">Задание 8</a></li>
+      </ul>
+    </header>
+    <!-- /*________________________*/ -->
+    <h1>Слушатели событий</h1>
+    <p></p>
+    <button type="button" class="js-target-btn">Целевая кнопка</button>
+    <button type="button" class="js-add-listener">Добывить слушатель</button>
+    <button type="button" class="js-remove-listener">Снять слушатель</button>
+    <!-- /*________________________*/ -->
+    <h1 class="title">homework-07</h1>
+    <section class="indented">
+      <h2 id="task1" class="title">Задание 1</h2>
+      <ul class="list" id="categories">
+        <li class="list__item">
+          <h2>Животные</h2>
+
+          <ul class="list">
+            <li>Кот</li>
+            <li>Хомяк</li>
+            <li>Лошадь</li>
+            <li>Попугай</li>
+          </ul>
+        </li>
+        <li class="list__item">
+          <h2>Продукты</h2>
+
+          <ul class="list">
+            <li>Хлеб</li>
+            <li>Петрушка</li>
+            <li>Творог</li>
+          </ul>
+        </li>
+        <li class="list__item">
+          <h2>Технологии</h2>
+
+          <ul class="list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="indented">
+      <h2 id="task2" class="title">Задание 2</h2>
+      <div class="broad">
+        <ul id="ingredients"></ul>
+      </div>
+    </section>
+    <section class="indented">
+      <h2 id="task3" class="title">Задание 3</h2>
+      <ul id="gallery"></ul>
+    </section>
+    <section class="indented">
+      <h2 id="task4" class="title">Задание 4</h2>
+      <div class="broad">
+        <div id="counter">
+          <button type="button" data-action="decrement">-1</button>
+          <span id="value">0</span>
+          <button type="button" data-action="increment">+1</button>
+        </div>
+      </div>
+    </section>
+    <section class="indented">
+      <h2 id="task5" class="title">Задание 5</h2>
+      <div class="broad">
+        <input
+          type="text"
+          id="validation-input"
+          data-length="6"
+          placeholder="Введи 6 символов"
+        />
+      </div>
+    </section>
+    <section class="indented">
+      <h2 id="task6" class="title">Задание 6</h2>
+      <div class="broad">
+        <input type="text" placeholder="Ваше имя?" id="name-input" />
+        <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+      </div>
+    </section>
+    <section class="indented">
+      <h2 id="task7" class="title">Задание 7</h2>
+      <div class="broad">
+        <input id="font-size-control" type="range" />
+        <br />
+        <span id="text">Абракадабра!</span>
+      </div>
+    </section>
+    <section class="indented">
+      <h2 id="task8" class="title">Задание 8</h2>
+      <div class="broad">
+        <div id="controls">
+          <input type="number" min="0" max="100" step="1" />
+          <button type="button" data-action="render">Создать</button>
+          <button type="button" data-action="destroy">Очистить</button>
+        </div>
+      </div>
+    </section>
+    <div id="boxes"></div>
+  </body>
+  <script src="./JS/webinar.js" type="module"></script>
   <!-- <script src="./JS/task1.js" type="module"></script> -->
   <!-- <script src="./JS/task2.js" type="module"></script> -->
   <!-- <script src="./JS/task3.js" type="module"></script> -->
   <!-- <script src="./JS/task4.js" type="module"></script> -->
-  <script src="./JS/task5.js" type="module"></script>
+  <!-- <script src="./JS/task5.js" type="module"></script> -->
+  <!-- <script src="./JS/task6.js" type="module"></script> -->
+  <!-- <script src="./JS/task7.js" type="module"></script> -->
+  <!-- <script src="./JS/task8.js" type="module"></script> -->
 </html>
