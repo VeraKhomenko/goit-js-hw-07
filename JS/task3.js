@@ -1,67 +1,46 @@
-// Write code under this line
-class Storage {
-  //Код должен содержать класс Storage - синтаксический сахар функции- коструктора
-  constructor(items) {
-    this.items = items; //Класс Storage должен создавать объект
-  }
-  getItems() {
-    return this.items;
-  }
-  addItem(item) {
-    return this.items.push(item);
-  }
-
-  removeItem(item) {
-    let index = this.items.indexOf(item); // indexOf - находит позицию элемента в массиве если он есть
-    if (index > -1) {
-      // если наш елемент -1 - его нет
-      return this.items.splice(index, 1); // (index, 1) - удалить с позиции индекс один элемент
-    }
-  }
-}
-
-console.log(typeof Storage);
-// 'function'
-
-const goods = ['Нанитоиды', 'Пролонгер', 'Железные жупи', 'Антигравитатор'];
-
-const storage = new Storage(goods);
-
-console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Пролонгер',
-  'Железные жупи',
-  'Антигравитатор'
-] */
-
-storage.addItem('Дроид');
-console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Пролонгер',
-  'Железные жупи',
-  'Антигравитатор',
-  'Дроид'
-] */
-
-storage.removeItem('Пролонгер');
-console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Железные жупи',
-  'Антигравитатор',
-  'Дроид'
-] */
-
 /*
-Задача 5-3
-использование методов класса
-Напиши класс Storage, который будет создавать объекты для управления складом товаров. При вызове будет получать один аргумент - начальный массив товаров, и записывать его в свойство items.
+Задание 3
+Напиши скрипт для создания галлереи изображений по массиву данных.
 
-Добавь методы класса:
+В HTML есть список ul#gallery.
 
-getItems() - возвращает массив текущих товаров
-addItem(item) - получает новый товар и добавляет его к текущим
-removeItem(item) - получает товар и, если он есть, удаляет его из текущих
-*/
+<ul id="gallery"></ul>
+Используй массив объектов images для создания тегов img вложенных в li.
+ Для создания разметки используй шаблонные строки и insertAdjacentHTML().
+
+Все элементы галереи должны добавляться в DOM за одну операцию вставки.
+Добавь минимальное оформление галереи флексбоксами или гридами через css-классы.*/
+
+const images = [
+  {
+    url:
+      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Group of Horses Running',
+  },
+];
+const ulGallery = document.querySelector('ul#gallery'); // создаем ссылку на родительский эл
+ulGallery.classList.add('js__gallery');
+// console.dir(ulGallery);
+
+const imageList = images.map(image => {
+  // перебираем массив
+  const liGallery = document.createElement('li'); // создаем в список 'li' элементов
+  liGallery.insertAdjacentHTML(
+    // в 'li' элементы добавляем тег img
+    'afterbegin',
+    `<img class="js__liGallery" src="${image.url}" alt="${image.alt}" width="250" height="165">`,
+  );
+  return liGallery;
+});
+
+ulGallery.append(...imageList); // за одну операцию добавляем новые эл
