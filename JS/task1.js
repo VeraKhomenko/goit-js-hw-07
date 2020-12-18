@@ -1,27 +1,22 @@
-// Write code under this line
-
-const Account = function (login, email) {
-  this.login = login;
-  this.email = email;
-};
-Account.prototype.getInfo = function () {
-  console.log(`Login : ${this.login}, Email: ${this.email}`);
-};
-
-console.log(typeof Account.prototype.getInfo);
-// 'function'
-
-const mango = new Account('Mangozedog', 'mango@dog.woof');
-console.log(mango.getInfo());
-// 'login : Mangozedog, email: mango@dog.woof'
-
-const poly = new Account('Poly', 'poly@mail.com');
-console.log(poly.getInfo());
-// 'login : Poly, email: poly@mail.com'
 /*
-Задача 5-1
-function-constructor
-Напиши функцию-конструктор Account, которая создает объект со свойствами login и email.
+Напиши скрипт, который выполнит следующие операции.
+Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. Получится 'В списке 3 категории.'.
+Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента (тега h2) 
+и количество элементов в категории (всех вложенных в него элементов li).
+Например для первой категории получится:
 
-В prototype функции-конструктора добавь метод getInfo(), который возвращает строку со значениями свойств login и email объекта.
-*/
+Категория: Животные
+Количество элементов: 4*/
+
+// const categories = [...document.querySelectorAll('li.list__item')];
+// console.log(categories); <= делаем массив.// либо коллекцию узлов - nodelist =>
+const categories = document.querySelectorAll('li.list__item');
+console.log(categories);
+console.log(`В списке ${categories.length} категории.`);
+
+categories.forEach(element => {
+  console.log(`Категория: ${element.querySelector('h2').textContent};`);
+  console.log(
+    `Колличество эллементов: ${element.querySelectorAll('.list li').length}`,
+  );
+});
