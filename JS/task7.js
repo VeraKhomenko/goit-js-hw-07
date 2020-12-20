@@ -1,36 +1,20 @@
-// Write code under this line
-class User {
-  constructor(name, age, followers) {
-    this.name = name;
-    this.age = age;
-    this.followers = followers;
-  }
-  getInfo() {
-    return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
-  }
-}
-
-console.log(typeof User);
-// 'function'
-
-const mango = new User('Mango', 2, 20);
-console.log(mango.getInfo());
-// 'User Mango is 2 years old and has 20 followers'
-
-console.log(typeof mango.getInfo);
-// 'function'
-
-const poly = new User('Poly', 3, 17);
-console.log(poly.getInfo());
-// 'User Poly is 3 years old and has 17 followers'
-
 /*
-Задача 5-2
-class
-Напиши класс User для создания пользователя со следующим свойствами:
 
-name - строка
-age - число
-followers - число
-Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
+Задание 7
+Напиши скрипт, который реагирует на изменение значения input#font-size-control (событие input) 
+и изменяет инлайн-стиль span#text обновляя свойство font-size.
+ В результате при перетаскивании ползунка будет меняться размер текста.
+
+ <input id="font-size-control" type="range" />
+        <br />
+        <span id="text">Абракадабра!</span>
 */
+const inputRef = document.querySelector('input#font-size-control');
+const inputSpan = document.querySelector('span#text');
+
+inputRef.addEventListener('change', changeTextSize);
+
+function changeTextSize() {
+  let fontSizeSpan = inputRef.value + 'px';
+  inputSpan.style.fontSize = fontSizeSpan;
+}

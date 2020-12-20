@@ -1,27 +1,45 @@
-// Write code under this line
-
-const Account = function (login, email) {
-  this.login = login;
-  this.email = email;
-};
-Account.prototype.getInfo = function () {
-  console.log(`Login : ${this.login}, Email: ${this.email}`);
-};
-
-console.log(typeof Account.prototype.getInfo);
-// 'function'
-
-const mango = new Account('Mangozedog', 'mango@dog.woof');
-console.log(mango.getInfo());
-// 'login : Mangozedog, email: mango@dog.woof'
-
-const poly = new Account('Poly', 'poly@mail.com');
-console.log(poly.getInfo());
-// 'login : Poly, email: poly@mail.com'
 /*
-Задача 5-1
-function-constructor
-Напиши функцию-конструктор Account, которая создает объект со свойствами login и email.
+Задание 6
+Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
+Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
 
-В prototype функции-конструктора добавь метод getInfo(), который возвращает строку со значениями свойств login и email объекта.
+Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
+Для добавления стилей, используй CSS-классы valid и invalid.
+
+<input
+          type="text"
+          id="validation-input"
+          data-length="6"
+          placeholder="Введи 6 символов"
+        />
 */
+// #validation-input {
+//   border: 3px solid #bdbdbd;
+// }
+
+// #validation-input.valid {
+//   border-color: #4caf50;
+// }
+
+// #validation-input.invalid {
+//   border-color: #f44336;
+// }
+
+const inputRef = document.querySelector('#validation-input');
+let dataLength = Number(inputRef.dataset.length);
+
+console.log(dataLength);
+
+inputRef.addEventListener('blur', inputLengthValidation);
+
+function inputLengthValidation(event) {
+  const inputValue = event.target.value;
+
+  if (inputValue.length === dataLength) {
+    inputRef.classList.remove('invalid');
+    inputRef.classList.add('valid');
+  } else {
+    inputRef.classList.remove('valid');
+    inputRef.classList.add('invalid');
+  }
+}

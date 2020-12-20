@@ -1,49 +1,39 @@
-// Write code under this line
-class StringBuilder {
-  constructor(value) {
-    this._value = value;
-  }
-  get value() {
-    return this._value;
-  }
-  append(str) {
-    this._value = this._value + str; // получает параметр str (строку) и добавляет ее в конец _value
-  }
+/*
+Задание 4
+Счетчик состоит из спана и кнопок, которые должны увеличивать и уменьшать значение счетчика на 1.
 
-  prepend(str) {
-    this._value = str + this._value; // получает параметр str (строку) и добавляет ее в начало value
-  }
-  pad(str) {
-    //получает параметр str (строку) и добавляет ее в начало и в конец _value //получает параметр str (строку) и добавляет ее в начало и в конец _value
-    this.prepend(str);
-    this.append(str); //Метод pad должен использовать методы append и prepend
-  }
+Создай переменную counterValue в которой будет хранится текущее значение счетчика.
+Создай функции increment и decrement для увеличения и уменьшения значения счетчика
+Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
+*/
+//  <div id="counter">
+//    <button type="button" data-action="decrement">  уменьшает
+//      -1
+//    </button>
+//    <span id="value">0</span> - counterValue
+//    <button type="button" data-action="increment"> увеличивает
+//      +1
+//    </button>
+//  </div>;
+
+// innerHTML  or textContent
+
+let counter = 0;
+
+const counterValue = document.querySelector('#value');
+const decrementBtn = document.querySelector('[data-action="decrement"]');
+
+const incrementBtn = document.querySelector('[data-action="increment"]');
+
+decrementBtn.addEventListener('click', onClickDecrement);
+incrementBtn.addEventListener('click', onClickIncrement);
+
+function onClickDecrement() {
+  counter -= 1;
+  counterValue.textContent = counter;
 }
 
-console.log(typeof StringBuilder);
-// 'function'
-
-const builder = new StringBuilder('.');
-
-builder.append('^');
-console.log(builder.value); // '.^'
-
-builder.prepend('^');
-console.log(builder.value); // '^.^'
-
-builder.pad('=');
-console.log(builder.value); // '=^.^='
-
-/*
-Задача 5-4
-переиспользование методов класса
-Напиши класс StringBuilder. На вход он получает один параметр - строку, которую записывает в свойство _value.
-
-Добавь классу следующий функционал:
-
-Геттер value - возвращает текущее значение поля _value
-Метод append(str) - получает параметр str (строку) и добавляет ее в конец _value
-Метод prepend(str) - получает параметр str (строку) и добавляет ее в начало value
-Метод pad(str) - получает параметр str (строку) и добавляет ее в начало и в конец _value
-Метод pad должен использовать методы append и prepend
-*/
+function onClickIncrement() {
+  counter += 1;
+  counterValue.textContent = counter;
+}

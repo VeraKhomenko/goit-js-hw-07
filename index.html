@@ -20,11 +20,11 @@
       </ul>
     </header>
     <!-- /*________________________*/ -->
-    <h1>Слушатели событий</h1>
-    <p></p>
+    <!-- <h1>Слушатели событий</h1> -->
+    <!-- <p></p>
     <button type="button" class="js-target-btn">Целевая кнопка</button>
     <button type="button" class="js-add-listener">Добывить слушатель</button>
-    <button type="button" class="js-remove-listener">Снять слушатель</button>
+    <button type="button" class="js-remove-listener">Снять слушатель</button> -->
     <!-- /*________________________*/ -->
     <h1 class="title">homework-07</h1>
     <section class="indented">
@@ -86,18 +86,23 @@
       <h2 id="task5" class="title">Задание 5</h2>
       <div class="broad">
         <input
+          class="js-input"
           type="text"
-          id="validation-input"
-          data-length="6"
-          placeholder="Введи 6 символов"
+          placeholder="Ваше имя?"
+          id="name-input"
         />
+        <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
       </div>
     </section>
     <section class="indented">
       <h2 id="task6" class="title">Задание 6</h2>
       <div class="broad">
-        <input type="text" placeholder="Ваше имя?" id="name-input" />
-        <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+        <input
+          type="text"
+          id="validation-input"
+          data-length="6"
+          placeholder="Введи 6 символов"
+        />
       </div>
     </section>
     <section class="indented">
@@ -116,17 +121,17 @@
           <button type="button" data-action="render">Создать</button>
           <button type="button" data-action="destroy">Очистить</button>
         </div>
+        <div id="boxes"></div>
       </div>
     </section>
-    <div id="boxes"></div>
   </body>
-  <script src="./JS/webinar.js" type="module"></script>
-  <!-- <script src="./JS/task1.js" type="module"></script> -->
-  <!-- <script src="./JS/task2.js" type="module"></script> -->
-  <!-- <script src="./JS/task3.js" type="module"></script> -->
-  <!-- <script src="./JS/task4.js" type="module"></script> -->
-  <!-- <script src="./JS/task5.js" type="module"></script> -->
-  <!-- <script src="./JS/task6.js" type="module"></script> -->
-  <!-- <script src="./JS/task7.js" type="module"></script> -->
-  <!-- <script src="./JS/task8.js" type="module"></script> -->
+  <!-- <script src="./JS/webinar.js" type="module"></script> -->
+  <script src="./JS/task1.js" type="module"></script>
+  <script src="./JS/task2.js" type="module"></script>
+  <script src="./JS/task3.js" type="module"></script>
+  <script src="./JS/task4.js" type="module"></script>
+  <script src="./JS/task5.js" type="module"></script>
+  <script src="./JS/task6.js" type="module"></script>
+  <script src="./JS/task7.js" type="module"></script>
+  <script src="./JS/task8.js" type="module"></script>
 </html>
