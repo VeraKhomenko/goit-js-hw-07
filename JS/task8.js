@@ -37,8 +37,9 @@ function onClickRender() {
   createBoxes(inputValue);
 }
 function onClickDestroy() {
-  const divDestroy = document.querySelectorAll('div#boxes');
-  for (let keyNode of divDestroy) keyNode.remove();
+  const divDestroy = document.querySelector('div#boxes');
+  divDestroy.innerHTML = '';
+  // for (let keyNode of divDestroy) keyNode.remove();
 }
 
 function createBoxes(amount) {
