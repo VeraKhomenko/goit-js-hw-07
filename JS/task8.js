@@ -1,6 +1,6 @@
 let boxSize = 30;
 const mainDiv = document.querySelector('div#controls');
-
+const inputRef = document.querySelector('[type = "number"');
 const renderBtn = document.querySelector('[data-action="render"]');
 const destroyBtn = document.querySelector('[data-action="destroy"]');
 const inputValue = document.querySelector('div#controls input');
@@ -14,6 +14,7 @@ function onClickRender() {
 }
 function onClickDestroy() {
   divBoxes.innerHTML = '';
+  inputRef.value = '';
 }
 
 function createBoxes(amount) {
@@ -26,7 +27,7 @@ function createBoxes(amount) {
       }px; background-color: ${randColor()};"></div>`,
     );
   }
-  arr.map(box => divBoxes.insertAdjacentHTML('beforeend', box));
+  divBoxes.insertAdjacentHTML('beforeend', arr.join(''));
 }
 
 function randColor() {
