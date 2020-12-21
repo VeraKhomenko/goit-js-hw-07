@@ -23,4 +23,5 @@ const imageList = images
     image =>
       `<li><img class="js__liGallery" src="${image.url}" alt="${image.alt}" width="250" height="165"></li>`,
   )
-  .map(img => ulGallery.insertAdjacentHTML('beforeend', img));
+  .join('');
+ulGallery.insertAdjacentHTML('beforeend', imageList);
